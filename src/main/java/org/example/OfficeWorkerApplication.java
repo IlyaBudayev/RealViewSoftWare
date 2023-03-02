@@ -81,34 +81,34 @@ public class OfficeWorkerApplication extends JFrame {
                 table.setBounds(tableX, tableY, tableWidth, tableHeight);
 
                 // Update the button bounds
-                showButton.setBounds(tableX, tableY*3, tableWidth, showButton.getHeight());
+                showButton.setBounds(tableX, tableY * 3, tableWidth, showButton.getHeight());
             }
         });
     }
 
     private void buttonListener() {
         showButton.addActionListener(e -> {
-                // Worker name request
-                String name = JOptionPane.showInputDialog(OfficeWorkerApplication.this, "Enter the worker name:");
-                if (name != null && !name.isEmpty()) {
-                    // Database output and showing results in the dialog window
-                    String phoneNumbers = getPhoneNumbersByName(name);
-                    if (phoneNumbers.isEmpty()) {
-                        JOptionPane.showMessageDialog(OfficeWorkerApplication.this, "No worker found.");
-                    } else {
-                        JOptionPane.showMessageDialog(OfficeWorkerApplication.this, "Phone numbers of " + name + ":\n" + phoneNumbers);
-                        // Hide the triangle
-                        trianglePanel.setVisible(false);
-                    }
+            // Worker name request
+            String name = JOptionPane.showInputDialog(OfficeWorkerApplication.this, "Enter the worker name:");
+            if (name != null && !name.isEmpty()) {
+                // Database output and showing results in the dialog window
+                String phoneNumbers = getPhoneNumbersByName(name);
+                if (phoneNumbers.isEmpty()) {
+                    JOptionPane.showMessageDialog(OfficeWorkerApplication.this, "No worker found.");
+                } else {
+                    JOptionPane.showMessageDialog(OfficeWorkerApplication.this, "Phone numbers of " + name + ":\n" + phoneNumbers);
+                    // Hide the triangle
+                    trianglePanel.setVisible(false);
                 }
-            });
+            }
+        });
     }
 
     // This method creates and returns a JButton with "Show phones" as text
     private JButton createButton() {
         final JButton removeButton;
         removeButton = new JButton("Show phones");
-        removeButton.setBounds(getX(), getY()*2, 100, 30);
+        removeButton.setBounds(getX(), getY() * 2, 100, 30);
         return removeButton;
     }
 
